@@ -2,7 +2,7 @@
   "development": {
     "username": "root",
     "password": null,
-    "database": "simple_property_list",
+    "database": "simple_property_db_test",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
