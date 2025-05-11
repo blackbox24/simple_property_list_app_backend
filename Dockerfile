@@ -16,6 +16,7 @@ COPY .env ./
 ENV NODE_ENV=production
 ENV PORT=3000
 
+RUN npx sequelize db:migrate
 
 # Expose the port the app runs on
 EXPOSE 3000

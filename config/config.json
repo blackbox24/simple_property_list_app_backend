@@ -15,9 +15,10 @@
   },
   "production": {
     "username": "root",
-    "password": null,
-    "database": "simple_property_list_production",
-    "host": "127.0.0.1",
+    "password": "JHHXIxVgLdAlMTfIdvjHVFTseaRaXkkM",
+    "database": "railway",
+    "host": "metro.proxy.rlwy.net",
+    "port": 38036,
     "dialect": "mysql"
   }
 }
