@@ -116,6 +116,50 @@ sequelize.authenticate().then(()=>{
 ```
 
 - Write our model
-```sh
-npx sequelize-cli model:generate --name Property --attributes image:file, name: string, location: string, price: demical;
+```js
+const {DataTypes} require("sequelize");
+const sequelize = require("../config/dbconfig.js");
+
+const Property = sequelize.define("Property",{
+    id:{
+        type:DataType.INTEGER,
+        allowNull:false,
+        autoIncrement:true,
+        primaryKey:true,
+    },
+    name:{
+        type:DataType.STRING,
+        allowNull:true
+    },
+    price:{
+        type:DataType.DECIMAL(10,2),
+        allowNull:false
+    },
+    location: {
+        type: DataTypes.STRING,
+        allowNull: false
+    },
+    createdAt: {
+        type: DataTypes.DATE,
+        defaultValue: DataTypes.NOW
+    },
+    updatedAt: {
+        type: DataTypes.DATE,
+        defaultValue: DataTypes.NOW
+    }
+    }, {
+  tableName: 'properties'
+});
+
+module.exports = Property;
 ```
+
+- Run `npx sequelize-cli migration:generate --name proptery`  to create migration file
+
+- Run `npx sequelize-cli db:migrate` to migrate data to database
+
+- Create controller director for Controller functions
+
+- Create routers directory for Property routes
+
+- Use routes in index.js
