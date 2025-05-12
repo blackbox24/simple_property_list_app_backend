@@ -9,9 +9,14 @@ const Property = sequelize.define('Property', {
   },
   name: {
     type: DataTypes.STRING,
-    allowNull: false
+    allowNull: false,
+    unique: true,
   },
-  image: {
+  description:{
+    type: DataTypes.STRING,
+    allowNull:true
+  },
+  image_url: {
     type: DataTypes.STRING,
     allowNull: true
   },
@@ -32,7 +37,7 @@ const Property = sequelize.define('Property', {
     defaultValue: DataTypes.NOW
   }
 }, {
-  tableName: 'properties'
+  tableName: 'property'
 });
 
 module.exports = Property;

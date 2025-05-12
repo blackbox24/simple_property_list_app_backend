@@ -13,7 +13,12 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: false
       },
-      image: {
+      description:{
+        type: Sequelize.STRING,
+        allowNull: true,
+        unique: true,
+      },
+      image_url: {
         type: Sequelize.STRING,
         allowNull: true
       },

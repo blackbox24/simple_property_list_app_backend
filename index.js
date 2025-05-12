@@ -9,7 +9,7 @@ const cors = require("cors");
 // Middleware
 app.use(
   cors({
-    origin: ["http://localhost:3000", "http://localhost:5173"], // Replace with your client's origin
+    origin: ["http://127.0.0.1:5500", "http://localhost:5500"], // Replace with your client's origin
   })
 );
 app.use(express.json());
