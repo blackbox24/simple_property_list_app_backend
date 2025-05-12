@@ -11,12 +11,12 @@ RUN npm install
 COPY . .
 
 # Copy the .env file
-COPY .env ./
-# Set environment variables
-ENV NODE_ENV=production
-ENV PORT=3000
+# COPY .env ./
+# # Set environment variables
+# ENV NODE_ENV=production
+# ENV PORT=3000
 
-RUN npx sequelize-cli db:migrate --env produdction --debug
+# RUN npx sequelize-cli db:migrate --env produdction --debug
 
 # Expose the port the app runs on
 EXPOSE 3000
