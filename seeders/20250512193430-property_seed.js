@@ -8,6 +8,7 @@ module.exports = {
       description: 'Description for Property 1',
       price: 100000,
       image_url: 'https://example.com/property1.jpg',
+      location: 'Location 1',
       createdAt: new Date(),
       updatedAt: new Date(),
     }], {});
@@ -15,6 +16,7 @@ module.exports = {
       name: 'Property 2',
       description: 'Description for Property 2',
       price: 100000,
+      location: 'Location 2',
       image_url: 'https://example.com/property3.jpg',
       createdAt: new Date(),
       updatedAt: new Date(),
@@ -23,6 +25,7 @@ module.exports = {
       name: 'Property 3',
       description: 'Description for Property 3',
       price: 100000,
+      location: 'Location 3',
       image_url: 'https://example.com/property2.jpg',
       createdAt: new Date(),
       updatedAt: new Date(),
