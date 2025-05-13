@@ -12,22 +12,177 @@
 			"item": [
 				{
 					"name": "Submit Property",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var template = `\r",
+									"<style type=\"text/css\">\r",
+									"    .tftable {font-size:14px;color:#333333;width:100%;border-width: 1px;border-color: #87ceeb;border-collapse: collapse;}\r",
+									"    .tftable th {font-size:18px;background-color:#87ceeb;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;text-align:left;}\r",
+									"    .tftable tr {background-color:#ffffff;}\r",
+									"    .tftable td {font-size:14px;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;}\r",
+									"    .tftable tr:hover {background-color:#e0ffff;}\r",
+									"</style>\r",
+									"\r",
+									"<table class=\"tftable\" border=\"1\">\r",
+									"    <tr>\r",
+									"        <th>Error</th>\r",
+									"    </tr>\r",
+									"    \r",
+									"    <tr>\r",
+									"        <td>{{response.error}}</td>\r",
+									"    </tr>\r",
+									"</table>\r",
+									"`;\r",
+									"\r",
+									"function constructVisualizerPayload() {\r",
+									"    return {response: pm.response.json()}\r",
+									"}\r",
+									"\r",
+									"pm.visualizer.set(template, constructVisualizerPayload());"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
 					"request": {
 						"method": "POST",
 						"header": [
 							{
 								"key": "Content-Type",
 								"value": "application/json"
+							},
+							{
+								"key": "",
+								"value": "",
+								"type": "text"
 							}
 						],
 						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"name\": \"Test Property\",\r\n    \"description\": \"Test property Description\",\r\n    \"location\": \"Accra\",\r\n    \"price\": 2000.00\r\n}"
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "image_url",
+									"type": "file",
+									"src": "/C:/Users/nelso/Pictures/loo.png"
+								},
+								{
+									"key": "name",
+									"value": "test 5",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "test 5 description",
+									"type": "text"
+								},
+								{
+									"key": "location",
+									"value": "Accra",
+									"type": "text"
+								},
+								{
+									"key": "price",
+									"value": "200.00",
+									"type": "text"
+								}
+							]
 						},
 						"url": "{{baseUrl}}/api/properties/",
 						"description": "Submit a new application for the alongboarding process."
 					},
-					"response": []
+					"response": [
+						{
+							"name": "Success Submit Property",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "",
+										"value": "",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "image_url",
+											"type": "file",
+											"src": "/C:/Users/nelso/Pictures/loo.png"
+										},
+										{
+											"key": "name",
+											"value": "test 5",
+											"type": "text"
+										},
+										{
+											"key": "description",
+											"value": "test 5 description",
+											"type": "text"
+										},
+										{
+											"key": "location",
+											"value": "Accra",
+											"type": "text"
+										},
+										{
+											"key": "price",
+											"value": "200.00",
+											"type": "text"
+										}
+									]
+								},
+								"url": "{{baseUrl}}/api/properties/"
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "231"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"e7-Kbz1kaF4DUuyidK1j2g6j4V8+E8\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 13 May 2025 12:30:08 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"createdAt\": \"2025-05-13T12:30:08.064Z\",\n    \"updatedAt\": \"2025-05-13T12:30:08.073Z\",\n    \"id\": 6,\n    \"name\": \"test 5\",\n    \"description\": \"test 5 description\",\n    \"price\": \"200.00\",\n    \"location\": \"Accra\",\n    \"image_url\": \"media\\\\uploads\\\\1747139406182-771310238.png\"\n}"
+						}
+					]
 				},
 				{
 					"name": "Get Properties",
@@ -36,7 +191,55 @@
 						"header": [],
 						"url": "{{baseUrl}}/api/properties/"
 					},
-					"response": []
+					"response": [
+						{
+							"name": "Success Get Properties",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": "{{baseUrl}}/api/properties/"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1033"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"409-5kxQj9J0O396aW5Hn/SzrvevShU\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 13 May 2025 11:20:17 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": 1,\n        \"name\": \"TEST PROPERTY\",\n        \"description\": \"TEST PROPTERTY\",\n        \"image_url\": null,\n        \"price\": \"20.00\",\n        \"location\": \"AMAKOM\",\n        \"createdAt\": null,\n        \"updatedAt\": null\n    },\n    {\n        \"id\": 2,\n        \"name\": \"test 2\",\n        \"description\": \"description 2\",\n        \"image_url\": null,\n        \"price\": \"200.00\",\n        \"location\": \"Accra\",\n        \"createdAt\": \"2025-05-13T08:52:24.000Z\",\n        \"updatedAt\": \"2025-05-13T08:52:24.000Z\"\n    },\n    {\n        \"id\": 3,\n        \"name\": \"Property 1\",\n        \"description\": \"Description for Property 1\",\n        \"image_url\": \"https://example.com/property1.jpg\",\n        \"price\": \"100000.00\",\n        \"location\": \"\",\n        \"createdAt\": \"2025-05-13T09:45:39.000Z\",\n        \"updatedAt\": \"2025-05-13T09:45:39.000Z\"\n    },\n    {\n        \"id\": 4,\n        \"name\": \"Property 2\",\n        \"description\": \"Description for Property 2\",\n        \"image_url\": \"https://example.com/property3.jpg\",\n        \"price\": \"100000.00\",\n        \"location\": \"\",\n        \"createdAt\": \"2025-05-13T09:45:40.000Z\",\n        \"updatedAt\": \"2025-05-13T09:45:40.000Z\"\n    },\n    {\n        \"id\": 5,\n        \"name\": \"Property 3\",\n        \"description\": \"Description for Property 3\",\n        \"image_url\": \"https://example.com/property2.jpg\",\n        \"price\": \"100000.00\",\n        \"location\": \"\",\n        \"createdAt\": \"2025-05-13T09:45:40.000Z\",\n        \"updatedAt\": \"2025-05-13T09:45:40.000Z\"\n    }\n]"
+						}
+					]
 				},
 				{
 					"name": "Get Property Details",
@@ -56,13 +259,77 @@
 							"variable": [
 								{
 									"key": "id",
-									"value": "1,2,3"
+									"value": "3"
 								}
 							]
 						},
 						"description": "Retrieve details of a specific application."
 					},
-					"response": []
+					"response": [
+						{
+							"name": "Success Get Property Details",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/api/properties/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"properties",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "3"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "231"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"e7-Wrg1foy+Vo4NyigiOlSCOO3AHUU\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 13 May 2025 11:21:34 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 3,\n    \"name\": \"Property 1\",\n    \"description\": \"Description for Property 1\",\n    \"image_url\": \"https://example.com/property1.jpg\",\n    \"price\": \"100000.00\",\n    \"location\": \"\",\n    \"createdAt\": \"2025-05-13T09:45:39.000Z\",\n    \"updatedAt\": \"2025-05-13T09:45:39.000Z\"\n}"
+						}
+					]
 				}
 			]
 		}

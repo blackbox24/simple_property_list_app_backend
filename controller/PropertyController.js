@@ -1,11 +1,8 @@
 const sequelize = require('../config/dbconf');
 const Property = require('../models/proptery');
-const multer = require("multer");
 const {validateProperty,validatePropertyImage} = require('../validations/propertyValidator');
-const upload = multer({ dest: 'uploads/' });
-const fs = require('fs');
-const path = require('path');
 const { Op } = require('sequelize');
+const upload = require('../config/fileUploadConf');
 
 
 
@@ -15,24 +12,30 @@ const PropertyController = {
             const properties = await Property.findAll();
             return rep.status(200).send(properties);
         }catch(err){
-            console.error(err);
             return rep.status(500).send({error:"Internal Server Error"});
         }
     },
     async createProperty(req,rep){
         try{
-            is_validate = validateProperty(req.body);
+            is_validate = await validateProperty(req.body);
             is_validate_image = validatePropertyImage(req.file);
 
             // Validate the request body
             if(!is_validate.isValid){
+                console.log(is_validate);
                 return rep.status(400).send({error:is_validate.errors});
             }   
-
+            // Validate the image file
             if(!is_validate_image.isValid){
                 return rep.status(400).send({error:is_validate_image.errors});
             }
-            const property = await Property.create(req.body);
+            const property = await Property.create({
+                name: req.body.name,
+                description: req.body.description,
+                price: req.body.price,
+                location: req.body.location,
+                image_url: req.file.path,
+            });
 
             return rep.status(201).send(property);
         }catch(err){
