@@ -163,3 +163,75 @@ module.exports = Property;
 - Create routers directory for Property routes
 
 - Use routes in index.js
+
+Xcelsz Alongboarding Backend
+This is the backend for the Xcelsz Alongboarding process, built with Express and MySQL. It supports the 6-step alongboarding journey, including application submission, role challenges, and trial runs.
+Prerequisites
+
+Node.js (v16 or higher)
+MySQL (v8 or higher)
+Postman (for testing APIs)
+
+Installation
+
+Clone the repository:git clone https://github.com/xcelsz/alongboarding-backend.git
+cd alongboarding-backend
+
+
+Install dependencies:npm install
+
+
+Create a .env file in the root directory and add the following:DATABASE_HOST=localhost
+DATABASE_USER=your_username
+DATABASE_PASSWORD=your_password
+DATABASE_NAME=alongboarding_db
+PORT=3000
+
+
+
+Database Setup
+
+Create the MySQL database:CREATE DATABASE alongboarding_db;
+
+
+Run the schema and migrations:npm run migrate
+
+This sets up tables for applications, challenges, and trial runs.
+
+Running the Server
+Start the backend server:
+npm start
+
+The server will run on http://localhost:3000.
+Testing
+
+Import the Postman collection (Xcelsz Alongboarding Backend API.postman_collection.json) into Postman.
+Setองชั่ว дняSet the baseUrl variable to http://localhost:3000.
+Test the following endpoints:
+POST /api/applications: Submit a new application.
+GET /api/applications/:id: Retrieve application details.
+POST /api/challenges: Submit a challenge.
+GET /api/challenges/:id: Retrieve challenge details.
+POST /api/trial-runs: Log trial run feedback.
+
+
+
+Project Structure
+
+src/: Source code
+routes/: API route handlers
+models/: MySQL database models
+controllers/: Business logic
+config/: Database and environment config
+
+
+migrations/: Database schema and migrations
+
+Contributing
+
+Fork the repository.
+Create a feature branch (git checkout -b feature/new-feature).
+Commit changes (git commit -m "Add new feature").
+Push to the branch (git push origin feature/new-feature).
+Create a Pull Request.
+
