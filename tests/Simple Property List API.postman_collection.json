@@ -1,0 +1,76 @@
+{
+	"info": {
+		"_postman_id": "f421973c-911e-4334-bac0-49d1635afcbd",
+		"name": "Simple Property List API",
+		"description": "API documentation for the Simple Property List API, supporting application submission, role challenges, and trial runs.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "36755390"
+	},
+	"item": [
+		{
+			"name": "Properties",
+			"item": [
+				{
+					"name": "Submit Property",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Test Property\",\r\n    \"description\": \"Test property Description\",\r\n    \"location\": \"Accra\",\r\n    \"price\": 2000.00\r\n}"
+						},
+						"url": "{{baseUrl}}/api/properties/",
+						"description": "Submit a new application for the alongboarding process."
+					},
+					"response": []
+				},
+				{
+					"name": "Get Properties",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{baseUrl}}/api/properties/"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Property Details",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/properties/:id",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"properties",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1,2,3"
+								}
+							]
+						},
+						"description": "Retrieve details of a specific application."
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:3000"
+		}
+	]
+}
