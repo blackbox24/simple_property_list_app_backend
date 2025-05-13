@@ -7,13 +7,16 @@ const PropertyRoutes = require("./routers/PropteryRoutes.js");
 const cors = require("cors");
 
 // Middleware
+// CORS configuration
 app.use(
   cors({
     origin: [
-        "http://127.0.0.1:5500", 
-        "http://localhost:5500",
-        "https://simple-property-list-frontend.vercel.app/",
-    ], // Replace with your client's origin
+      'http://localhost:5500',
+      'http://127.0.0.1:5500',
+      'https://simple-property-list-frontend.vercel.app',
+    ],
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    allowedHeaders: ['Content-Type'],
   })
 );
 app.use(express.json());
