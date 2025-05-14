@@ -164,6 +164,17 @@ module.exports = Property;
 
 - Use routes in index.js
 
+
+### Using Json Web Token
+Jsonwebtoken will be used for generating our access and refresh tokens
+- first install jsonwebtoken, Run `npm install jsonwebtoken` in your terminal
+- Create an authentication controller and router
+- Run `require("crypto").randomBytes(64).toString("hex")` in your node terminal to create a secret key
+- Create a middleware that create token when user is created or logs in
+- Create controller to handle user registration and logins
+- Run `npm install bcrypt` to install bcrypt for hashing and verifying passwords
+- 
+
 Xcelsz Alongboarding Backend
 This is the backend for the Xcelsz Alongboarding process, built with Express and MySQL. It supports the 6-step alongboarding journey, including application submission, role challenges, and trial runs.
 Prerequisites

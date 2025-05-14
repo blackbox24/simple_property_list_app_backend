@@ -3,7 +3,6 @@ const app = express();
 const port = process.env.PORT || 3000;
 const path = require("path");
 const sequelize = require("./config/dbconf");
-const PropertyRoutes = require("./routers/PropteryRoutes.js");
 const cors = require("cors");
 
 // Middleware
@@ -14,7 +13,8 @@ app.use(express.urlencoded({ extended: true }));
 // Routes
 // Serve static files from media/uploads
 app.use('/media/uploads', express.static(path.join(__dirname, 'media/uploads')));
-app.use("/api", PropertyRoutes);
+app.use("/api", require("./routers/PropteryRoutes.js"));
+app.use("/api/auth", require("./routers/AuthRoutes.js"));
 
 // Sync database
 sequelize.sync({ force: false })
