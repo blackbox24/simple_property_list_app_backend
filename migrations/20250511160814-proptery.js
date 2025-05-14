@@ -36,6 +36,16 @@ module.exports = {
       updatedAt: {
         type: Sequelize.DATE,
         defaultValue: Sequelize.NOW
+      },
+      userId:{
+        type:Sequelize.INTEGER,
+        references:{
+          model:'users',
+          key:'id'
+        },
+        onUpdate:'CASCADE',
+        onDelete:'SET NULL',
+        allowNull:true
       }
     });
      

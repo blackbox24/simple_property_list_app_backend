@@ -29,6 +29,16 @@ const Property = sequelize.define('Property',
     type: DataTypes.STRING,
     allowNull: false
   },
+  userId:{
+    type: DataTypes.INTEGER,
+    references:{
+      model:"users",
+      key:"id"
+    },
+    onUpdate:"CASCADE",
+    onDelete:"SET NULL", 
+    allowNull:true
+  },
   createdAt: {
     type: DataTypes.DATE,
     defaultValue: DataTypes.NOW
